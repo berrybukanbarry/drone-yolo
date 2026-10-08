@@ -1,0 +1,18 @@
+# Lingkungan Python (dibuat ulang di tiap perangkat)
+.venv/
+__pycache__/
+*.pyc
+
+# Key & token rahasia (setiap pengguna membuat sendiri dari alert_config.example.json)
+alert_config*.json
+
+# Data pemakaian & foto (berisi wajah orang)
+captures/
+bukti/
+panel_settings.json
+ai_usage.json
+gcs_alerts.jsonl
+
+# Hasil ekspor model / alat bantu lokal
+*_openvino_model/
+graphify-out/

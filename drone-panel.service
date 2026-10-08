@@ -1,0 +1,23 @@
+# Panel Drone otomatis menyala saat drone boot.
+# Ganti NAMA_USER dan /home/NAMA_USER/Yolo sesuai user & lokasi folder di drone, lalu:
+#   sudo cp drone-panel.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now drone-panel
+# Centang "Start otomatis saat panel dinyalakan" di panel agar detektor juga langsung jalan.
+
+[Unit]
+Description=Panel Drone YOLO
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=NAMA_USER
+WorkingDirectory=/home/NAMA_USER/Yolo
+ExecStart=/home/NAMA_USER/Yolo/start_panel.sh
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=15
+
+[Install]
+WantedBy=multi-user.target
